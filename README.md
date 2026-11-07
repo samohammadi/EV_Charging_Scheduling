@@ -76,6 +76,12 @@ The project consists of the following main Python modules:
 
 These modules implement LSTM-based forecasting models for electricity prices and energy-related data under different case studies.
 
+### LSTM Model Files
+
+- `LSTM/`
+
+This folder contains the pre-trained PyTorch model files (`.pt`) used by the LSTM forecasting modules for electricity price and energy prediction.
+
 ### Data Preparation and Environment
 
 - `Demand_Forecasting.py`
@@ -137,7 +143,7 @@ The three datasets used in this research were obtained from the **California Ind
 - **Energy Data:** Historical energy-related data.
 - **Electricity Demand Data:** Historical demand data used by the `Demand_Forecasting.py` module.
 
-**Data Source:** https://oasis.caiso.com/mrioasis/
+**Data Source:** [https://oasis.caiso.com/mrioasis/](https://oasis.caiso.com/mrioasis/)
 
 Users should ensure that the required datasets are available and properly prepared before running the forecasting and scheduling modules.
 
@@ -149,7 +155,7 @@ If you use this project, its implementation, or any part of its research methodo
 
 **Sam Ohammadi**
 
-GitHub Repository: https://github.com/samohammadi/EV_Charging_Scheduling
+GitHub Repository: [https://github.com/samohammadi/EV_Charging_Scheduling](https://github.com/samohammadi/EV_Charging_Scheduling)
 
 Please provide appropriate credit to **Sam Ohammadi** when using, adapting, or referencing this work in academic publications, research projects, or other applications.
 
@@ -159,7 +165,7 @@ Please provide appropriate credit to **Sam Ohammadi** when using, adapting, or r
 
 **Sam Ohammadi**
 
-GitHub: https://github.com/samohammadi
+GitHub: [https://github.com/samohammadi](https://github.com/samohammadi)
 
 ---
 
