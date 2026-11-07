@@ -113,7 +113,6 @@ This section includes the modules responsible for preparing input data and confi
 | `Demand_Forecasting.py` | Handles the loading and preparation of electricity demand data used in the EV charging scheduling environment. |
 | `Prediction_Price.py` | Implements the electricity price environment by loading LSTM-based price predictions. It updates electricity prices at each time step and calculates the corresponding reward for charging decisions. |
 | `Prediction_Energy.py` | Implements the energy consumption environment using LSTM-based energy predictions. It updates energy consumption values over time and incorporates energy-related information into the reward function. |
-| `Information_Station.py` | Collects EV charging station information through the Open Charge Map API, including station locations, charging capacity, connector types, and available charging points. It also estimates charging demand based on station information and assumed user demand. The collected information is stored in CSV files. |
 | `DQN_Parse_Parameter.py` | Defines the configuration parameters and command-line arguments for the DQN algorithm, including learning rate, discount factor, exploration settings, replay memory capacity, battery constraints, and reward coefficients. |
 
 ### 3. Deep Q-Network (DQN) Implementation
@@ -128,13 +127,7 @@ This section includes the modules responsible for preparing input data and confi
 |---|---|
 | `Prediction_Price_Test.py` | Implements the electricity price testing environment using the predicted price test dataset. It evaluates charging decisions under test conditions and calculates cumulative charging costs based on electricity prices and selected charging actions. |
 
-### 5. Sensitivity Analysis
-
-| File | Description |
-|---|---|
-| `Sensitivity_Analysis.py` | Performs sensitivity analysis on key DQN hyperparameters, including the discount factor (γ), learning rate, and action smoothness penalty. A grid-search-based experiment is conducted across different parameter combinations and random seeds. Mean and standard deviation of rewards are calculated, and heatmaps are generated to visualize the impact of parameter variations on model performance. |
-
-### 6. Evaluation Metrics
+### 5. Evaluation Metrics
 
 The LSTM forecasting models are evaluated using the following regression metrics:
 
@@ -144,7 +137,7 @@ The LSTM forecasting models are evaluated using the following regression metrics
 - **MAPE:** Mean Absolute Percentage Error
 - **Safe MAPE:** A modified percentage error metric designed to reduce instability caused by very small denominator values.
 
-The DQN-based scheduling framework is evaluated using reward values, cumulative charging costs, training losses, and sensitivity analysis results.
+The DQN-based scheduling framework is evaluated using reward values, cumulative charging costs, and training losses.
 
 ---
 
@@ -167,52 +160,9 @@ pip install numpy pandas matplotlib seaborn torch gym scikit-learn requests tens
 
 ---
 
-## 🔑 Open Charge Map API Configuration
-
-The `Information_Station.py` module uses the **Open Charge Map API** to retrieve electric vehicle charging station information, including station locations, charging capacity, connector types, and available charging points.
-
-To use this module, you need to obtain your own API key.
-
-### How to Obtain an API Key
-
-1. Visit the [Open Charge Map website](https://openchargemap.org/).
-2. Create an account or sign in.
-3. Follow the API instructions on the website to request your own API key.
-4. Configure the API key as an environment variable before running the module.
-
-**Important:** Each user is responsible for obtaining and configuring their own API key. The API key is not included in this repository.
-
-### Configure the API Key
-
-For Linux and macOS:
-
-```bash
-export OPEN_CHARGE_MAP_API_KEY="your_api_key"
-```
-
-For Windows PowerShell:
-
-```powershell
-$env:OPEN_CHARGE_MAP_API_KEY="your_api_key"
-```
-
-The Python code can access the API key securely using:
-
-```python
-import os
-
-API_KEY = os.getenv("OPEN_CHARGE_MAP_API_KEY")
-```
-
-Please refer to the [Open Charge Map website](https://openchargemap.org/) for API access information and usage guidelines.
-
----
-
 ## 📚 Data Sources
 
 The research uses electricity price and energy-related data from the **California Independent System Operator (CAISO)**.
-
-Charging station information is retrieved through the **Open Charge Map API**.
 
 Users should ensure that they have access to the required input datasets before running the forecasting and scheduling modules.
 
