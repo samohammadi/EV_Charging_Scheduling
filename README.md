@@ -2,188 +2,167 @@
 
 ## 🔬 Research & Publications
 
-### ⚡ An Efficient Electric Vehicle Charging Scheduling Based on Deep Reinforcement Learning
+### An Efficient Electric Vehicle Charging Scheduling Based on Deep Reinforcement Learning
 
-**Research Area:** Artificial Intelligence | Deep Reinforcement Learning | Smart Energy Management | Electric Vehicles
+**Research Area:** AI | Deep Reinforcement Learning | Smart Energy Management | Electric Vehicles
 
-This research focuses on developing an intelligent, data-driven framework for day-ahead Electric Vehicle (EV) charging scheduling using **Long Short-Term Memory (LSTM)** and **Deep Q-Network (DQN)**.
+**Framework:**
 
-The proposed framework integrates time-series forecasting with deep reinforcement learning to optimize EV charging and discharging decisions under fluctuating electricity prices and varying energy demand.
+This research proposes a day-ahead electric vehicle (EV) charging scheduling framework based on Long Short-Term Memory (LSTM) networks and Deep Q-Networks (DQN). The framework forecasts future electricity prices and energy demand over a 24-hour horizon and optimizes EV charging and discharging decisions under fluctuating electricity prices and energy requirements.
 
-### 🧠 Proposed Methodology
+**Proposed Methodology:**
 
-The proposed framework consists of two main neural network components:
+1. **LSTM-Based Forecasting:** Predicting electricity prices and energy consumption.
+2. **Deep Q-Network (DQN):** Making optimal charging and discharging decisions based on forecasts, user requirements, and system constraints.
 
-**1. LSTM-Based Forecasting Network**
+**Key Contributions:**
 
-LSTM networks are used to extract temporal patterns from historical electricity price and energy consumption data. These models forecast future operating conditions over a 24-hour horizon, providing predictive information for the EV charging scheduling framework.
-
-**2. Deep Q-Network (DQN)**
-
-A DQN agent learns an optimal action-value function to determine EV charging and discharging decisions based on predicted operating conditions, user energy requirements, and system constraints.
-
-By combining forecasting and reinforcement learning, the framework aims to make intelligent charging decisions while reducing electricity costs and considering battery-related constraints.
-
-### ⚙️ Key Research Contributions
-
-- Integration of LSTM-based forecasting with DQN for intelligent EV charging scheduling.
-- Development of a multi-component reward function for multi-objective optimization.
-- Consideration of battery degradation costs in the scheduling framework.
+- Integration of LSTM forecasting and DQN-based scheduling.
+- Development of a multi-component reward function.
+- Consideration of battery degradation costs.
 - Modeling battery swapping through a zero-power action.
-- Application of training stabilization strategies to improve learning performance and reward convergence.
-- Evaluation using real-world electricity price and energy data from the California Independent System Operator (CAISO).
+- Application of training stabilization strategies.
+- Use of real-world electricity price and energy-related data from CAISO.
 
-### 📊 Experimental Results
+**Experimental Results:**
 
-The proposed DRL-based framework achieved a **34%–42% reduction in EV charging costs** compared with the state-of-the-art methods evaluated in the study.
+The proposed method achieves a **34%–42% reduction in EV charging costs** compared with the evaluated state-of-the-art methods.
 
-The results demonstrate the potential of combining predictive deep learning and reinforcement learning for cost-efficient EV charging management.
+**Research Technologies:**
 
-### 🛠️ Research Technologies & Concepts
+Python, Deep Learning, LSTM, DQN, Deep Reinforcement Learning, Markov Decision Process (MDP), Time-Series Forecasting, EV Charging Optimization, Battery Degradation, and Smart Energy Management.
 
-- Python
-- Deep Learning
-- Long Short-Term Memory (LSTM)
-- Deep Q-Network (DQN)
-- Deep Reinforcement Learning (DRL)
-- Markov Decision Process (MDP)
-- Time-Series Forecasting
-- Electric Vehicle Charging Optimization
-- Battery Degradation Modeling
-- Smart Energy Management
+**Research Scope:**
 
-### 📌 Research Scope
-
-This work focuses on day-ahead EV charging and discharging scheduling from the user's perspective, with emphasis on electricity cost and battery energy requirements.
-
-Although Vehicle-to-Grid (V2G) technology is discussed as an important related concept, its actual implementation, aggregator participation, and detailed distribution-grid analysis are outside the scope of this research.
+The study focuses on day-ahead EV charging and discharging scheduling from the user's perspective, considering electricity costs and battery energy requirements. Vehicle-to-Grid (V2G) implementation, aggregator participation, and detailed distribution-grid analysis are outside the scope of this research.
 
 ---
 
 ## 🛠️ Implementation & Python Libraries
 
-The project is implemented in Python and uses the following libraries for deep learning, data processing, reinforcement learning, and visualization.
+The project is implemented in Python using the following libraries:
 
-| Library | Purpose |
-|---|---|
-| **PyTorch** | Neural network implementation and training, including LSTM and DQN models |
-| **NumPy** | Numerical computations and array operations |
-| **Pandas** | Data processing, manipulation, and analysis |
-| **Scikit-learn** | Data preprocessing, normalization, and model evaluation |
-| **Gym** | Reinforcement learning environment and action-space definition |
-| **Matplotlib** | Data visualization and plotting |
-| **Seaborn** | Statistical data visualization |
-| **Requests** | HTTP requests and data retrieval |
-| **TensorBoard** | Logging and monitoring training information |
+- PyTorch
+- NumPy
+- Pandas
+- Scikit-learn
+- Gym
+- Matplotlib
+- Seaborn
+- Requests
+- TensorBoard
 
-### 🐍 Python Standard Library
+**Python Standard Libraries:**
 
-The project also uses built-in Python modules, including:
-
-- `time`
-- `math`
-- `random`
-- `argparse`
-- `datetime`
-- `os`
+- time
+- math
+- random
+- argparse
+- datetime
+- os
 
 ---
 
 ## 📂 Project Structure & Code Description
 
-The project is organized into several Python modules covering LSTM-based forecasting, data preparation, charging environment modeling, DQN implementation, testing, and performance evaluation.
+The project consists of the following main Python modules:
 
-### 1. LSTM-Based Forecasting
+### LSTM Forecasting Models
 
-This section contains four LSTM-based models developed to forecast electricity prices and energy consumption under two experimental cases.
+- `LSTM_Price_Case1.py`
+- `LSTM_Enery_case1.py`
+- `LSTM_Price_Case2.py`
+- `LSTM_Enery_case2.py`
 
-| File | Description |
-|---|---|
-| `LSTM_Price_Case1.py` | Implements an LSTM model for electricity price forecasting using a 24-hour sliding window. The model is trained on historical data and evaluated using a separate test dataset. |
-| `LSTM_Enery_case1.py` | Implements an LSTM model for energy consumption forecasting using historical energy data. Prediction performance is evaluated using regression metrics. |
-| `LSTM_Price_Case2.py` | Implements the electricity price forecasting model with a separate validation dataset. Training and validation losses are monitored, and Early Stopping is applied based on validation performance. |
-| `LSTM_Enery_case2.py` | Implements the energy consumption forecasting model using training, validation, and test datasets. Early Stopping is employed, and the best model parameters are restored for final evaluation. |
+These modules implement LSTM-based forecasting models for electricity prices and energy-related data under different case studies.
 
-### 2. Data Preparation and Environment Configuration
+### Data Preparation and Environment
 
-This section includes the modules responsible for preparing input data and configuring the simulation environments used by the DQN agent.
+- `Demand_Forecasting.py`
+- `Prediction_Price.py`
+- `Prediction_Energy.py`
+- `DQN_Parse_Parameter.py`
 
-| File | Description |
-|---|---|
-| `Demand_Forecasting.py` | Handles the loading and preparation of electricity demand data used in the EV charging scheduling environment. |
-| `Prediction_Price.py` | Implements the electricity price environment by loading LSTM-based price predictions. It updates electricity prices at each time step and calculates the corresponding reward for charging decisions. |
-| `Prediction_Energy.py` | Implements the energy consumption environment using LSTM-based energy predictions. It updates energy consumption values over time and incorporates energy-related information into the reward function. |
-| `DQN_Parse_Parameter.py` | Defines the configuration parameters and command-line arguments for the DQN algorithm, including learning rate, discount factor, exploration settings, replay memory capacity, battery constraints, and reward coefficients. |
+These modules handle demand forecasting, prediction processing, and parameter configuration.
 
-### 3. Deep Q-Network (DQN) Implementation
+### DQN Scheduling
 
-| File | Description |
-|---|---|
-| `DQN_Main.py` | Implements the main DQN-based EV charging scheduling framework. It includes the Q-network and target network architectures, experience replay memory, action selection, reward processing, and the training loop. The agent interacts with the electricity price, energy consumption, and demand environments to learn charging decisions. Training results, rewards, selected actions, losses, Q-table values, and network parameters are recorded for further analysis. |
+- `DQN_Main.py`
 
-### 4. Testing and Performance Evaluation
+This module implements the Deep Q-Network algorithm for EV charging and discharging scheduling.
 
-| File | Description |
-|---|---|
-| `Prediction_Price_Test.py` | Implements the electricity price testing environment using the predicted price test dataset. It evaluates charging decisions under test conditions and calculates cumulative charging costs based on electricity prices and selected charging actions. |
+### Testing
 
-### 5. Evaluation Metrics
+- `Prediction_Price_Test.py`
 
-The LSTM forecasting models are evaluated using the following regression metrics:
+This module evaluates electricity price prediction performance.
 
-- **MAE:** Mean Absolute Error
-- **RMSE:** Root Mean Squared Error
-- **R²:** Coefficient of Determination
-- **MAPE:** Mean Absolute Percentage Error
-- **Safe MAPE:** A modified percentage error metric designed to reduce instability caused by very small denominator values.
+### Evaluation Metrics
 
-The DQN-based scheduling framework is evaluated using reward values, cumulative charging costs, and training losses.
+The project uses the following metrics and indicators:
+
+- Mean Absolute Error (MAE)
+- Root Mean Squared Error (RMSE)
+- R-squared (R²)
+- Mean Absolute Percentage Error (MAPE)
+- Safe MAPE
+- DQN cumulative reward
+- Cumulative EV charging costs
+- Training losses
 
 ---
 
-## 📦 Installation
+## ⚙️ Installation
 
-### Requirements
+**Requirements:**
 
 - Python 3.x
 - pip
 
-### Install Dependencies
-
-The required third-party libraries can be installed using:
+Install the required libraries:
 
 ```bash
 pip install numpy pandas matplotlib seaborn torch gym scikit-learn requests tensorboard
 ```
 
-**Note:** The project uses Gym for reinforcement learning environment implementation. Depending on the installed Gym version, some compatibility adjustments may be required.
+**Note:** Depending on the Python version, some Gym versions may require compatibility adjustments.
 
 ---
 
 ## 📚 Data Sources
 
-The research uses electricity price and energy-related data from the **California Independent System Operator (CAISO)**.
+The three datasets used in this research were obtained from the **California Independent System Operator (CAISO)** through the **Open Access Same-time Information System (OASIS)**.
 
-Users should ensure that they have access to the required input datasets before running the forecasting and scheduling modules.
+- **Electricity Price Data:** Day-Ahead Market (DAM) Locational Marginal Prices (LMP).
+- **Energy Data:** Historical energy-related data.
+- **Electricity Demand Data:** Historical demand data used by the `Demand_Forecasting.py` module.
+
+**Data Source:** https://oasis.caiso.com/mrioasis/
+
+Users should ensure that the required datasets are available and properly prepared before running the forecasting and scheduling modules.
 
 ---
 
 ## 📄 Citation
 
-If you use this research or its implementation in your work, please cite the corresponding research publication.
-
-*Publication details can be added here.*
-
----
-
-## 👨‍💻 Author
+If you use this project, its implementation, or any part of its research methodology in your work, please acknowledge the original author:
 
 **Sam Ohammadi**
 
-GitHub: [@samohammadi](https://github.com/samohammadi)
+GitHub Repository: https://github.com/samohammadi/EV_Charging_Scheduling
+
+Please provide appropriate credit to **Sam Ohammadi** when using, adapting, or referencing this work in academic publications, research projects, or other applications.
+
+---
+
+## 👤 Author
+
+**Sam Ohammadi**
+
+GitHub: https://github.com/samohammadi
 
 ---
 
 ## 📜 License
 
-Please refer to the repository's license file for terms of use and distribution.
+Please refer to the repository's LICENSE file for licensing information.
