@@ -1,1 +1,38 @@
 
+# Single-EV Charging Scheduling Using LSTM and DQN
+
+## Project Overview
+This folder contains the implementation of an intelligent charging and discharging scheduling framework for a single electric vehicle (Single-EV), combining Long Short-Term Memory (LSTM) networks for electricity price forecasting and Deep Q-Network (DQN) for reinforcement learning-based decision-making.
+
+The main objective is to learn an effective charging and discharging policy that minimizes the electricity charging cost over a 24-hour scheduling horizon.
+
+## Implementation Features and Specifications
+
+- **Number of Electric Vehicles:** One EV (Single-EV).
+- **Scheduling Horizon:** 24 hours.
+- **Forecasting Model:** LSTM for electricity price forecasting and relevant scheduling information.
+- **Decision-Making Algorithm:** Deep Q-Network (DQN).
+- **Action Space:** Seven discrete actions representing different charging, discharging, and idle power levels.
+- **Battery State of Charge (SOC):** This implementation allows the battery SOC to decrease below 20%. No strict lower SOC constraint is explicitly enforced in the current code.
+- **SOC Penalty:** A penalty term based on the deviation of the battery SOC from its maximum capacity is incorporated into the reward function at the vehicle departure time. Therefore, SOC values below 20% are permitted but are also reflected in the reward calculation.
+  
+## Outputs and Performance Evaluation
+
+All calculations and performance evaluations in this version are performed for a single electric vehicle. The main outputs include:
+
+- **Cumulative Charging Cost:** Calculation and recording of the total electricity charging cost over the simulation period.
+- **Hourly Reward:** Calculation of the DQN agent's reward at each one-hour time step.
+- **24-Hour Reward:** Calculation of the total accumulated reward over each 24-hour period.
+- **Cumulative Reward:** Recording of the total rewards received by the agent throughout the simulation and training process.
+
+The vehicle state, charging costs, and reward values are recorded in output tables, allowing the performance of the proposed scheduling algorithm to be analyzed and evaluated in the single-EV scenario.
+
+## Data Source
+
+Electricity price data are obtained from the **California Independent System Operator (CAISO) Open Access Same-time Information System (OASIS)**.
+
+## Author
+
+Sam Ohammadi
+
+[Main GitHub Repository](https://github.com/samohammadi/EV_Charging_Scheduling)
