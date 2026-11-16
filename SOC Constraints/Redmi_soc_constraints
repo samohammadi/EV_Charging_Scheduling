@@ -1,0 +1,37 @@
+# SOC Constraints – Modified Implementation
+
+## Overview
+
+This folder contains the modified code for applying explicit State of Charge (SOC) constraints to the original Single-EV charging scheduling framework based on LSTM and DQN.
+
+Unlike the original implementation, this modification introduces explicit lower and upper bounds on the battery SOC.
+
+## SOC Constraints
+
+- **Minimum SOC:** 20% (0.20)
+- **Maximum SOC:** 100% (1.00)
+- **Initial SOC:** Restricted to the range of 20%–100%.
+- **SOC Updates:** The battery SOC is clipped after each action to ensure that it remains within the specified limits.
+
+## Reward Function
+
+The original reward function is preserved without modification.
+
+The existing electricity price-related reward and the SOC-related penalty at vehicle departure remain unchanged. Therefore, the original reward calculation structure is maintained, while the feasible SOC range is explicitly restricted.
+
+## Implementation Notes
+
+This folder contains only the modified code related to SOC constraints. It is intended to be used as an extension of the original Single-EV implementation.
+
+The remaining components, including LSTM forecasting, DQN training, electricity price processing, and performance evaluation, remain in the original project.
+
+## Relationship to the Original Implementation
+
+- Original implementation: Allows SOC values below 20%, with the existing SOC-related penalty in the reward function.
+- Modified implementation: Explicitly restricts SOC to the range of 20%–100%, while preserving the original reward function.
+
+## Author
+
+Sam Ohammadi
+
+[Main GitHub Repository](https://github.com/samohammadi/EV_Charging_Scheduling)
