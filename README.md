@@ -146,7 +146,36 @@ The LSTM forecasting models are evaluated using the following regression metrics
 The DQN-based scheduling framework is evaluated using reward values, cumulative charging costs, and training losses.
 
 ---
+### 6. EV Charging Scheduling – Single-EV Implementation
 
+The `EV_Charging_SingleEV/` folder contains the dedicated implementation of the proposed LSTM-DQN framework for a single electric vehicle (Single-EV).
+
+This implementation focuses on day-ahead charging and discharging scheduling over a 24-hour horizon, with the objective of minimizing the cumulative electricity charging cost for one EV.
+
+The implementation allows the battery State of Charge (SOC) to decrease below 20%, without enforcing an explicit minimum SOC constraint. However, an SOC-related penalty term is included in the reward function at the vehicle departure time.
+
+The main outputs include:
+- Cumulative electricity charging cost for one EV.
+- Hourly reward.
+- Total reward over each 24-hour period.
+- Cumulative reward throughout the simulation and training process.
+
+For further details, source code, and implementation specifications, refer to the README file inside the `EV_Charging_SingleEV/` folder.
+
+### 7. SOC Constraints – Modified Implementation
+
+The `SOC_Constraints/` folder contains an additional code modification for the original Single-EV implementation, introducing explicit battery State of Charge (SOC) constraints.
+
+In this modified implementation:
+- **Minimum SOC:** Restricted to 20%.
+- **Maximum SOC:** Restricted to 100%.
+- **Initial SOC:** Maintained within the range of 20%–100%.
+- **SOC Updates:** The battery SOC is restricted to the specified range after each action.
+- **Reward Function:** The original reward function is preserved without modification, including the SOC-related penalty at vehicle departure.
+
+This folder contains only the modified code related to SOC constraints, rather than the complete project implementation. It is intended to be used as an extension of the original Single-EV source code.
+
+For further details and implementation instructions, refer to the README file inside the `SOC_Constraints/` folder.
 ## 📦 Installation
 
 ### Requirements
